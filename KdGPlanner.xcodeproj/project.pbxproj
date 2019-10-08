@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D44C80A22329606B00A662AE /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C80A12329606B00A662AE /* CustomNavigationBar.swift */; };
+		D44C80A72329673500A662AE /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C80A62329673500A662AE /* UnderlinedTextField.swift */; };
 		D49CF9D92329345E0002D656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49CF9D82329345E0002D656 /* AppDelegate.swift */; };
 		D49CF9DB2329345E0002D656 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49CF9DA2329345E0002D656 /* ViewController.swift */; };
 		D49CF9DE2329345E0002D656 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49CF9DC2329345E0002D656 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D44C80A12329606B00A662AE /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		D44C80A62329673500A662AE /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		D49CF9D52329345E0002D656 /* KdGPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KdGPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49CF9D82329345E0002D656 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D49CF9DA2329345E0002D656 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4422C62234CA33E00B1EFBE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D44C80A62329673500A662AE /* UnderlinedTextField.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D44C80A02329600C00A662AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D44C80A12329606B00A662AE /* CustomNavigationBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D49CF9CC2329345E0002D656 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +74,8 @@
 		D49CF9D72329345E0002D656 /* KdGPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				D4422C62234CA33E00B1EFBE /* Extensions */,
+				D44C80A02329600C00A662AE /* Views */,
 				D49CF9D82329345E0002D656 /* AppDelegate.swift */,
 				D49CF9DA2329345E0002D656 /* ViewController.swift */,
 				D49CF9DC2329345E0002D656 /* Main.storyboard */,
@@ -135,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D44C80A22329606B00A662AE /* CustomNavigationBar.swift in Sources */,
 				D49CF9DB2329345E0002D656 /* ViewController.swift in Sources */,
 				D49CF9D92329345E0002D656 /* AppDelegate.swift in Sources */,
+				D44C80A72329673500A662AE /* UnderlinedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
