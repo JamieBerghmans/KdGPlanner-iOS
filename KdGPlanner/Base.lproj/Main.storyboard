@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Emc-Nt-Ndp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Emc-Nt-Ndp">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <color key="barTintColor" red="0.15930527057719104" green="0.3491312379285566" blue="0.5993024171306397" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OTt-vy-paE"/>
+                        <segue destination="ieA-pg-0T7" kind="relationship" relationship="rootViewController" id="aHR-h1-9pk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V69-4h-MVD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -26,151 +26,180 @@
             <point key="canvasLocation" x="-380" y="-635"/>
         </scene>
         <!--Home-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="erV-gT-8tx">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KdGPlanner" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="ieA-pg-0T7" customClass="SearchTableViewController" customModule="KdGPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1rT-wl-cPT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tr7-pL-Bg0">
-                                <rect key="frame" x="0.0" y="88" width="375" height="208"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="D1u-oJ-FC8">
-                                        <rect key="frame" x="8" y="16" width="343" height="73"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TUf-5B-oqH">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock_light" translatesAutoresizingMaskIntoConstraints="NO" id="7V4-BA-JE1">
-                                                        <rect key="frame" x="0.0" y="5" width="20" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="66J-iN-8KU"/>
-                                                            <constraint firstAttribute="width" constant="20" id="N4x-Xs-Ofh"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dinsdag 08 Oct 13:17" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CLO-IA-Qpm" customClass="UnderlinedTextField" customModule="KdGPlanner" customModuleProvider="target">
-                                                        <rect key="frame" x="28" y="0.0" width="315" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="YC0-ua-c2r"/>
-                                                        </constraints>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="uqn-sb-H0H">
-                                                <rect key="frame" x="0.0" y="43" width="343" height="30"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="96E-hK-NbQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="159.66666666666666" height="30"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_light" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-Bb-89U">
-                                                                <rect key="frame" x="0.0" y="5" width="20" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="20" id="570-72-Bsc"/>
-                                                                    <constraint firstAttribute="height" constant="20" id="dc5-tz-LL3"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Groenplaats" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHU-S5-zb7" customClass="UnderlinedTextField" customModule="KdGPlanner" customModuleProvider="target">
-                                                                <rect key="frame" x="28" y="0.0" width="131.66666666666666" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="KjF-H7-qll"/>
-                                                                </constraints>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wjt-7Z-Q6j">
-                                                        <rect key="frame" x="183.66666666666663" y="0.0" width="159.33333333333337" height="30"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="duration_light" translatesAutoresizingMaskIntoConstraints="NO" id="Q69-WR-u6s">
-                                                                <rect key="frame" x="0.0" y="5" width="20" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="20" id="3gK-0a-Kl5"/>
-                                                                    <constraint firstAttribute="height" constant="20" id="IIi-Is-M2S"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30 minutes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pY0-TW-mhP" customClass="UnderlinedTextField" customModule="KdGPlanner" customModuleProvider="target">
-                                                                <rect key="frame" x="28" y="0.0" width="131.33333333333334" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="dUd-Es-LKy"/>
-                                                                </constraints>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="UZb-9E-pLe"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="TUf-5B-oqH" firstAttribute="leading" secondItem="D1u-oJ-FC8" secondAttribute="leading" id="Mqf-81-2ai"/>
-                                            <constraint firstAttribute="trailing" secondItem="TUf-5B-oqH" secondAttribute="trailing" id="RYi-6Q-FSf"/>
-                                            <constraint firstItem="uqn-sb-H0H" firstAttribute="leading" secondItem="D1u-oJ-FC8" secondAttribute="leading" id="fFK-1x-KhT"/>
-                                            <constraint firstAttribute="trailing" secondItem="uqn-sb-H0H" secondAttribute="trailing" id="fql-op-wrt"/>
-                                        </constraints>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkD-d4-8Wa" customClass="RoundedCorners" customModule="KdGPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="113" width="343" height="40"/>
-                                        <color key="backgroundColor" red="0.070588235289999995" green="0.40000000000000002" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="GLL-6O-JCH"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="Search">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Juu-0v-XPq" customClass="SegmentedControlFilter" customModule="KdGPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="169" width="343" height="32"/>
-                                        <segments>
-                                            <segment title="Availability"/>
-                                            <segment title="Classroom"/>
-                                        </segments>
-                                        <color key="selectedSegmentTintColor" red="0.070588235289999995" green="0.40000000000000002" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="KkD-d4-8Wa" secondAttribute="trailing" constant="16" id="E8l-kN-iZ0"/>
-                                    <constraint firstItem="Juu-0v-XPq" firstAttribute="top" secondItem="KkD-d4-8Wa" secondAttribute="bottom" constant="16" id="Hv9-Mo-VlQ"/>
-                                    <constraint firstItem="KkD-d4-8Wa" firstAttribute="top" secondItem="D1u-oJ-FC8" secondAttribute="bottom" constant="24" id="L76-eg-qtT"/>
-                                    <constraint firstItem="Juu-0v-XPq" firstAttribute="leading" secondItem="tr7-pL-Bg0" secondAttribute="leading" constant="16" id="afu-kJ-hhw"/>
-                                    <constraint firstAttribute="trailing" secondItem="D1u-oJ-FC8" secondAttribute="trailing" constant="24" id="amH-2T-jSJ"/>
-                                    <constraint firstItem="D1u-oJ-FC8" firstAttribute="leading" secondItem="tr7-pL-Bg0" secondAttribute="leading" constant="8" id="eh1-E3-7e5"/>
-                                    <constraint firstItem="KkD-d4-8Wa" firstAttribute="leading" secondItem="tr7-pL-Bg0" secondAttribute="leading" constant="16" id="huH-t7-hC7"/>
-                                    <constraint firstAttribute="trailing" secondItem="Juu-0v-XPq" secondAttribute="trailing" constant="16" id="q28-LC-53k"/>
-                                    <constraint firstAttribute="bottom" secondItem="Juu-0v-XPq" secondAttribute="bottom" constant="8" id="tlx-Fa-axp"/>
-                                    <constraint firstItem="D1u-oJ-FC8" firstAttribute="top" secondItem="tr7-pL-Bg0" secondAttribute="top" constant="16" id="uZe-wt-l17"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="tr7-pL-Bg0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4VG-91-N3x"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tr7-pL-Bg0" secondAttribute="trailing" id="aJV-vf-tFa"/>
-                            <constraint firstItem="tr7-pL-Bg0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fUy-Jk-cna"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Home" id="Hxh-5C-YcZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="QZ9-y6-42x">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="207.99999999999997"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="2Xk-9n-OKp">
+                                    <rect key="frame" x="8" y="16" width="343" height="73"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fy6-1x-ObI">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock_light" translatesAutoresizingMaskIntoConstraints="NO" id="Ha8-qu-Dc2">
+                                                    <rect key="frame" x="0.0" y="5" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="BCh-Zv-duE"/>
+                                                        <constraint firstAttribute="width" constant="20" id="ikp-D8-S20"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dinsdag 08 Oct 13:17" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="83E-0C-X2n" customClass="UnderlinedTextField" customModule="KdGPlanner" customModuleProvider="target">
+                                                    <rect key="frame" x="28" y="0.0" width="315" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="5ac-oV-TTE"/>
+                                                    </constraints>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="SI9-PF-0YT">
+                                            <rect key="frame" x="0.0" y="43" width="343" height="30"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OEm-OA-XwK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="159.66666666666666" height="30"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_light" translatesAutoresizingMaskIntoConstraints="NO" id="qJb-ws-2kS">
+                                                            <rect key="frame" x="0.0" y="5" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="SIb-wr-X2M"/>
+                                                                <constraint firstAttribute="height" constant="20" id="e1b-jw-Qjz"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Groenplaats" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKC-Fm-D64" customClass="UnderlinedTextField" customModule="KdGPlanner" customModuleProvider="target">
+                                                            <rect key="frame" x="28" y="0.0" width="131.66666666666666" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="MTZ-ae-SR0"/>
+                                                            </constraints>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-gi-sI8">
+                                                    <rect key="frame" x="183.66666666666663" y="0.0" width="159.33333333333337" height="30"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="duration_light" translatesAutoresizingMaskIntoConstraints="NO" id="or6-VQ-OvW">
+                                                            <rect key="frame" x="0.0" y="5" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="f1D-Vy-ERR"/>
+                                                                <constraint firstAttribute="width" constant="20" id="vJd-YK-OJA"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30 minutes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIy-Qk-qZQ" customClass="UnderlinedTextField" customModule="KdGPlanner" customModuleProvider="target">
+                                                            <rect key="frame" x="28" y="0.0" width="131.33333333333334" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="Hj6-pF-Tfr"/>
+                                                            </constraints>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="GEg-eo-ZsW"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="SI9-PF-0YT" secondAttribute="trailing" id="5Fa-EI-fKO"/>
+                                        <constraint firstItem="SI9-PF-0YT" firstAttribute="leading" secondItem="2Xk-9n-OKp" secondAttribute="leading" id="MNB-xX-fBO"/>
+                                        <constraint firstAttribute="trailing" secondItem="fy6-1x-ObI" secondAttribute="trailing" id="U3P-L2-bCX"/>
+                                        <constraint firstItem="fy6-1x-ObI" firstAttribute="leading" secondItem="2Xk-9n-OKp" secondAttribute="leading" id="gPG-er-p7P"/>
+                                    </constraints>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEH-tw-JME" customClass="RoundedCorners" customModule="KdGPlanner" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="113" width="343" height="40"/>
+                                    <color key="backgroundColor" red="0.070588235289999995" green="0.40000000000000002" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="vBI-M6-f2n"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="Search">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="searchButtonTap:" destination="ieA-pg-0T7" eventType="touchUpInside" id="y1S-Zw-Wki"/>
+                                    </connections>
+                                </button>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aHR-vi-z0c" customClass="SegmentedControlFilter" customModule="KdGPlanner" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="169" width="343" height="32"/>
+                                    <segments>
+                                        <segment title="Availability"/>
+                                        <segment title="Classroom"/>
+                                    </segments>
+                                    <color key="selectedSegmentTintColor" red="0.070588235289999995" green="0.40000000000000002" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="2Xk-9n-OKp" firstAttribute="leading" secondItem="QZ9-y6-42x" secondAttribute="leading" constant="8" id="3nW-lF-mbX"/>
+                                <constraint firstAttribute="trailing" secondItem="2Xk-9n-OKp" secondAttribute="trailing" constant="24" id="CMM-Nv-Hdh"/>
+                                <constraint firstItem="vEH-tw-JME" firstAttribute="top" secondItem="2Xk-9n-OKp" secondAttribute="bottom" constant="24" id="D4B-Pm-0bo"/>
+                                <constraint firstItem="2Xk-9n-OKp" firstAttribute="top" secondItem="QZ9-y6-42x" secondAttribute="top" constant="16" id="RME-Tf-zkf"/>
+                                <constraint firstItem="aHR-vi-z0c" firstAttribute="leading" secondItem="QZ9-y6-42x" secondAttribute="leading" constant="16" id="Sta-eC-7DX"/>
+                                <constraint firstAttribute="bottom" secondItem="aHR-vi-z0c" secondAttribute="bottom" constant="8" id="Zss-IG-1ZF"/>
+                                <constraint firstAttribute="trailing" secondItem="vEH-tw-JME" secondAttribute="trailing" constant="16" id="gPn-Iv-gDx"/>
+                                <constraint firstAttribute="trailing" secondItem="aHR-vi-z0c" secondAttribute="trailing" constant="16" id="kcj-Eu-IgE"/>
+                                <constraint firstItem="vEH-tw-JME" firstAttribute="leading" secondItem="QZ9-y6-42x" secondAttribute="leading" constant="16" id="kd1-NT-Taz"/>
+                                <constraint firstItem="aHR-vi-z0c" firstAttribute="top" secondItem="vEH-tw-JME" secondAttribute="bottom" constant="16" id="snh-u7-Bqz"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Xgb-0w-n1v">
+                                <rect key="frame" x="0.0" y="236" width="375" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xgb-0w-n1v" id="XKB-52-Zca">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ieA-pg-0T7" id="hhR-sB-0Ei"/>
+                            <outlet property="delegate" destination="ieA-pg-0T7" id="40E-gW-6f4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Home" id="ORi-yS-hSc"/>
                     <connections>
-                        <outlet property="campusPickerTextField" destination="FHU-S5-zb7" id="eMl-gj-amB"/>
-                        <outlet property="datePickerTextField" destination="CLO-IA-Qpm" id="ZuT-Ky-BMx"/>
-                        <outlet property="minimumAvailabilityPickerTextField" destination="pY0-TW-mhP" id="8Ds-A4-KMo"/>
+                        <outlet property="campusPickerTextField" destination="IKC-Fm-D64" id="F53-C7-2Lo"/>
+                        <outlet property="datePickerTextField" destination="83E-0C-X2n" id="UTn-rT-Yxj"/>
+                        <outlet property="datePickerView" destination="sEi-df-b5E" id="Sm7-EZ-cUR"/>
+                        <outlet property="minimumAvailabilityPickerTextField" destination="NIy-Qk-qZQ" id="Bva-HJ-eo2"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MDr-WA-EdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="sEi-df-b5E">
+                    <rect key="frame" x="0.0" y="0.0" width="398" height="181"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tf mate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9e-1V-ZbX">
+                            <rect key="frame" x="169.66666666666666" y="80" width="59" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="W9e-1V-ZbX" firstAttribute="centerX" secondItem="sEi-df-b5E" secondAttribute="centerX" id="AHD-sW-jUY"/>
+                        <constraint firstItem="W9e-1V-ZbX" firstAttribute="centerY" secondItem="sEi-df-b5E" secondAttribute="centerY" id="gVQ-Nh-62m"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="3Mn-fj-xuI"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="324" y="-635.46798029556658"/>
+            <point key="canvasLocation" x="426" y="-635"/>
         </scene>
     </scenes>
     <resources>
