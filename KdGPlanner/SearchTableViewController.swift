@@ -75,6 +75,9 @@ class SearchTableViewController: UITableViewController {
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        if #available(iOS 13.0, *) {
+            self.tableView.separatorColor = .quaternarySystemFill
+        }
         
         //Set custom date format
         dateFormatter.dateFormat = "EEEE dd LLL HH:mm"
@@ -371,14 +374,14 @@ class SearchTableViewController: UITableViewController {
                     
                     self.classroomList.append(room)
                 }
-                
-                DispatchQueue.main.async {
-                    self.sort()
-                    self.refreshCount -= 1
-                    if self.refreshCount == 0 {
-                        self.tableView.reloadData()
-                        self.refreshControl?.endRefreshing()
-                    }
+            }
+            
+            DispatchQueue.main.async {
+                self.sort()
+                self.refreshCount -= 1
+                if self.refreshCount == 0 {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
                 }
             }
         }
@@ -440,14 +443,13 @@ class SearchTableViewController: UITableViewController {
                 } else {
                     announcement.AnnouncementType = 3
                 }
-                
-                DispatchQueue.main.async {
-                    self.announcement = announcement
-                    self.refreshCount -= 1
-                    if self.refreshCount == 0 {
-                        self.tableView.reloadData()
-                        self.refreshControl?.endRefreshing()
-                    }
+            }
+            
+            DispatchQueue.main.async {
+                self.refreshCount -= 1
+                if self.refreshCount == 0 {
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
                 }
             }
         }
