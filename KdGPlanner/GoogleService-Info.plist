@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>246262177608-o7pr2brjje7pbi1kt0ah4664dd5ihpch.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.246262177608-o7pr2brjje7pbi1kt0ah4664dd5ihpch</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD5cbmNnRvNtpwe_GUU9Pp-e8-1Z1I_UkI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>246262177608</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.devvix.KdGPlanner</string>
+	<key>PROJECT_ID</key>
+	<string>kdgplanner</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kdgplanner.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:246262177608:ios:3928042d1fd5d6e2661d7d</string>
+	<key>DATABASE_URL</key>
+	<string>https://kdgplanner.firebaseio.com</string>
+</dict>
+</plist>
