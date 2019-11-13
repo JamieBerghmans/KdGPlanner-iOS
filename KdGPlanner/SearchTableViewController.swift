@@ -322,10 +322,9 @@ class SearchTableViewController: UITableViewController {
             date = prevDate
         } else {
             previousDate = date
+            self.refreshControl?.beginRefreshing()
         }
         
-        
-        self.refreshControl?.beginRefreshing()
         self.refreshCount = 2
         pullClassrooms(date: date)
         pullAnnouncements()
