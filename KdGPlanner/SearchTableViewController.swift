@@ -478,7 +478,7 @@ class SearchTableViewController: UITableViewController {
                     return false
                 }
                 
-                return $0.Duration! < $1.Duration!
+                return $0.Duration! > $1.Duration!
             }
         } else {
             //Sorted classroom
