@@ -12,8 +12,8 @@ struct DateType {
     
     static let DATE = DateType(format: "EEEE dd LLL HH:mm")
     static let TIME = DateType(format: "HH:mm")
-    static let API = DateType(format: "HH:mm:ss")
-    static let DTO_TIME = DateType(format: "yyyy/MM/dd%20HH:mm")
+    static let API = DateType(format: "yyyy/MM/dd%20HH:mm")
+    static let DTO_TIME = DateType(format: "HH:mm:ss")
     static let DTO_DATE = DateType(format: "yyyy-MM-dd'T'HH:mm:ss")
     static let DURATION = DateType(format: "duration")
     

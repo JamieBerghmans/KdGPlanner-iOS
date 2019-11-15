@@ -22,8 +22,8 @@ class WebHelper {
         
         refreshCount = 2
         
-        let hour = Calendar.current.component(.hour, from: date)
-        let minute = Calendar.current.component(.minute, from: date)
+        let hour = Calendar.current.component(.hour, from: duration)
+        let minute = Calendar.current.component(.minute, from: duration)
         let newDuration = minute + (hour * 60)
         
         var error: Bool?
@@ -54,6 +54,8 @@ class WebHelper {
     
     func pullClassrooms(date: Date, campus: String, duration: Int, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?) -> Void) {
         let url = URL(string: "\(Constants.API_BASE)\(Constants.API_LESSONS)dateTime=\(DateFormatHelper.dateToString(type: DateType.API,date: date))&campus=\(campus)&minAvailabilityMinutes=\(duration)&client=ios")
+        
+        print(url!)
         
         let task = URLSession.shared.dataTask(with: url!) { data, _, error in
                 
@@ -90,7 +92,7 @@ class WebHelper {
                     let room = Classroom(room: value.classroom!)
                     
                     if let duration = value.availability {
-                        room.duration = DateFormatHelper.stringToDate(type: DateType.API, string: duration)
+                        room.duration = DateFormatHelper.stringToDate(type: DateType.DTO_TIME, string: duration)
                     }
                     
                     if let end = value.endAvailability {
