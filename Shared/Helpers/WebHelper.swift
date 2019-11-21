@@ -32,7 +32,7 @@ class WebHelper {
         
         let campus = Constants.CAMPUSSES[fullCampus]!
         
-        pullClassrooms(date: date, campus: campus, duration: newDuration) { (_error, _classrooms) in
+        pullClassrooms(date: date, campus: campus, duration: newDuration, client: "ios") { (_error, _classrooms) in
             error = _error
             classrooms = _classrooms
             
@@ -52,34 +52,34 @@ class WebHelper {
         }
     }
     
-    func pullClassrooms(date: Date, campus: String, duration: Int, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?) -> Void) {
-        let url = URL(string: "\(Constants.API_BASE)\(Constants.API_LESSONS)dateTime=\(DateFormatHelper.dateToString(type: DateType.API,date: date))&campus=\(campus)&minAvailabilityMinutes=\(duration)&client=ios")
+    func reload(date: Date,campus fullCampus: String, duration: Date, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?) -> Void) {
         
-        print(url!)
+        refreshCount = 1
         
+        let hour = Calendar.current.component(.hour, from: duration)
+        let minute = Calendar.current.component(.minute, from: duration)
+        let newDuration = minute + (hour * 60)
+        
+        let campus = Constants.CAMPUSSES[fullCampus]!
+        
+        pullClassrooms(date: date, campus: campus, duration: newDuration, client: "watchos") { (_error, _classrooms) in
+            self.refreshCount = 0
+            handler(_error, _classrooms)
+        }
+    }
+    
+    func pullClassrooms(date: Date, campus: String, duration: Int, client: String, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?) -> Void) {
+        let url = URL(string: "\(Constants.API_BASE)\(Constants.API_LESSONS)dateTime=\(DateFormatHelper.dateToString(type: DateType.API,date: date))&campus=\(campus)&minAvailabilityMinutes=\(duration)&client=\(client)")
+
         let task = URLSession.shared.dataTask(with: url!) { data, _, error in
                 
             guard error == nil else {
-                /*DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Something went wrong", message: "An error occurred while trying to connect to the server. Please try again later.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }*/
                 handler(true, nil)
                 return
             }
                 
             guard let data = data else {
                 handler(false, [])
-                /*self.classroomList.removeAll()
-                
-                DispatchQueue.main.async {
-                    self.refreshCount -= 1
-                    if self.refreshCount == 0 {
-                        self.tableView.reloadData()
-                        self.refreshControl?.endRefreshing()
-                    }
-                }*/
                 return
             }
             
@@ -104,15 +104,6 @@ class WebHelper {
             }
             
             handler(false, classrooms)
-            
-            /*DispatchQueue.main.async {
-                self.sort()
-                self.refreshCount -= 1
-                if self.refreshCount == 0 {
-                    self.tableView.reloadData()
-                    self.refreshControl?.endRefreshing()
-                }
-            }*/
         }
 
         task.resume()
@@ -124,15 +115,6 @@ class WebHelper {
         let task = URLSession.shared.dataTask(with: url!) { data, _, error in
                 
             guard error == nil, let data = data else {
-                /*self.announcement = nil
-                
-                DispatchQueue.main.async {
-                    self.refreshCount -= 1
-                    if self.refreshCount == 0 {
-                        self.tableView.reloadData()
-                        self.refreshControl?.endRefreshing()
-                    }
-                }*/
                 handler(nil)
                 return
             }
@@ -144,13 +126,6 @@ class WebHelper {
                 
                 let defaults = UserDefaults.standard
                 if let ids = defaults.array(forKey: Constants.TAGS_ANNOUNCEMENTS) as? [Int], ids.contains(announcement!.id) {
-                    /*DispatchQueue.main.async {
-                        self.refreshCount -= 1
-                        if self.refreshCount == 0 {
-                            self.tableView.reloadData()
-                            self.refreshControl?.endRefreshing()
-                        }
-                    }*/
                     handler(nil)
                     return
                 }
@@ -158,13 +133,6 @@ class WebHelper {
                 announcement!.text = json.text
                 
                 guard json.platform == nil || json.platform! > 1 else {
-                    /*DispatchQueue.main.async {
-                        self.refreshCount -= 1
-                        if self.refreshCount == 0 {
-                            self.tableView.reloadData()
-                            self.refreshControl?.endRefreshing()
-                        }
-                    }*/
                     handler(nil)
                     return
                 }
@@ -176,13 +144,6 @@ class WebHelper {
                 }
             }
             
-            /*DispatchQueue.main.async {
-                self.refreshCount -= 1
-                if self.refreshCount == 0 {
-                    self.tableView.reloadData()
-                    self.refreshControl?.endRefreshing()
-                }
-            }*/
             handler(announcement)
         }
 

@@ -62,7 +62,6 @@ class SearchTableViewController: UITableViewController {
     //DurationPickerView
     @IBOutlet weak var durationPickerViewPicker: UIDatePicker!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -316,6 +315,10 @@ class SearchTableViewController: UITableViewController {
     }
     
     func reload(refresh: Bool) {
+        guard !webHelper.isReloading else {
+            return
+        }
+        
         var date = selectedDate
         var campus = selectedCampus
         var duration = selectedDuration

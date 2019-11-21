@@ -8,4 +8,8 @@
 
 import WatchKit
 
-class ClassroomRow: WKInterfaceObject
+class ClassroomRowController: NSObject {
+    
+    @IBOutlet weak var room: WKInterfaceTextField!
+    @IBOutlet weak var end: WKInterfaceTextField!
+}
