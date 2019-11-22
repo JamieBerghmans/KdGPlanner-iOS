@@ -7,7 +7,7 @@
 //
 
 import WatchKit
-import Foundation
+import WatchConnectivity
 
 
 class InterfaceController: WKInterfaceController {
@@ -20,59 +20,82 @@ class InterfaceController: WKInterfaceController {
     var classrooms: [Classroom]? = []
     let webHelper = WebHelper()
     
+    private var session = WCSession.default
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        populateTable()
+        
+        if WCSession.isSupported() {
+            session.delegate = self
+            session.activate()
+        }
+    }
+    
+    func populateTableIndependently() {
+        print("Watch request")
+        webHelper.reload(date: Date(), campus: "Groenplaats", duration: DateFormatHelper.stringToDate(type: DateType.TIME, string: "00:30"), limit: 3) { (error, classrooms) in
+            self.classrooms = classrooms
+            
+            DispatchQueue.main.async {
+                self.updateTable(classrooms: classrooms)
+                self.stopRefreshAnimation()
+            }
+        }
     }
     
     func populateTable() {
+        startRefreshAnimation()
+        
         guard !webHelper.isReloading else {
             return
         }
         
-        startRefreshAnimation()
-        webHelper.reload(date: Date(), campus: "Pothoek", duration: DateFormatHelper.stringToDate(type: DateType.TIME, string: "00:30")) { (error, classrooms) in
-            self.classrooms = classrooms
-            
-            DispatchQueue.main.async {
-                if self.table.numberOfRows > 0 {
-                    for i in 0...(self.table.numberOfRows - 1) {
-                        self.table.removeRows(at: IndexSet(integer: i))
-                    }
+        if session.isReachable {
+            print("Phone request")
+            session.sendMessage(["type" : "classrooms", "campus": "Groenplaats", "limit": 3], replyHandler: { (response) in
+                var result: [Classroom] = []
+                
+                do {
+                    NSKeyedUnarchiver.setClass(Classroom.self, forClassName: "Classroom")
+                    result = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self, Classroom.self], from: response["result"] as! Data) as! [Classroom]
+                } catch {
+                    print("CATCH! \(error)")
+                    result = []
                 }
                 
-                if var rooms = classrooms {
-                    rooms.sort {
-                        
-                        if $0.duration == $1.duration {
-                            return $0.room < $1.room
-                        }
-                        
-                        guard $0.duration != nil else {
-                            return true
-                        }
-                        
-                        guard $1.duration != nil else {
-                            return false
-                        }
-                        
-                        return $0.duration! > $1.duration!
-                    }
-                    
-                    self.table.setNumberOfRows(rooms.count, withRowType: "ClassroomRow")
-                    
-                    for (index, room) in rooms.enumerated() {
-                        let row = self.table.rowController(at: index) as! ClassroomRowController
-                        row.room.setText(room.room)
-                        if let end = room.end {
-                            row.end.setText(DateFormatHelper.dateToString(type: DateType.TIME, date: end))
-                        } else {
-                            row.end.setText("-")
-                        }
-                    }
-                    
+                DispatchQueue.main.async {
+                    self.updateTable(classrooms: result)
                     self.stopRefreshAnimation()
+                }
+                
+            }, errorHandler: { (error) in
+                print("Error sending message: \(error)")
+                self.populateTableIndependently()
+                self.stopRefreshAnimation()
+            })
+        } else {
+            populateTableIndependently()
+        }
+    }
+    
+    func updateTable(classrooms: [Classroom]?) {
+        if self.table.numberOfRows > 0 {
+            for i in 0...(self.table.numberOfRows - 1) {
+                self.table.removeRows(at: IndexSet(integer: i))
+            }
+        }
+        
+        if let rooms = classrooms {
+            self.table.setNumberOfRows(rooms.count, withRowType: "ClassroomRow")
+            
+            for (index, room) in rooms.enumerated() {
+                let row = self.table.rowController(at: index) as! ClassroomRowController
+                row.room.setText(room.room)
+                if let end = room.end {
+                    row.end.setText(DateFormatHelper.dateToString(type: DateType.TIME, date: end))
+                } else {
+                    row.end.setText("-")
                 }
             }
         }
@@ -103,6 +126,13 @@ class InterfaceController: WKInterfaceController {
     @IBAction func editingHasBegun(_ value: NSString?) {
         print("test")
     }
+}
+
+extension InterfaceController: WCSessionDelegate {
     
-    
+    // 4: Required stub for delegating session
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("activationDidCompleteWith activationState:\(activationState) error:\(String(describing: error))")
+        populateTable()
+    }
 }

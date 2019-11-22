@@ -8,10 +8,12 @@
 
 import Foundation
 
-class Classroom {
+class Classroom: NSObject, NSCoding, NSSecureCoding {
+
     var room: String
     var duration: Date?
     var end: Date?
+    static var supportsSecureCoding: Bool = true
     
     init(room: String) {
         self.room = room
@@ -21,5 +23,17 @@ class Classroom {
         self.init(room: room)
         self.duration = duration
         self.end = end
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(room, forKey: "room")
+        coder.encode(duration, forKey: "duration")
+        coder.encode(end, forKey: "end")
+    }
+    
+    required init?(coder: NSCoder) {
+        room = coder.decodeObject(forKey: "room") as! String
+        duration = coder.decodeObject(forKey: "duration") as? Date
+        end = coder.decodeObject(forKey: "end") as? Date
     }
 }

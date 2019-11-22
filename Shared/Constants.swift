@@ -6,11 +6,10 @@
 //  Copyright © 2019 Devvix. All rights reserved.
 //
 
-import UIKit
 class Constants {
-    static let DATE_PICKER_HEIGHT: CGFloat = 250
-    static let CAMPUS_PICKER_HEIGHT: CGFloat = 200
-    static let DURATION_PICKER_HEIGHT: CGFloat = 250
+    static let DATE_PICKER_HEIGHT = 250
+    static let CAMPUS_PICKER_HEIGHT = 200
+    static let DURATION_PICKER_HEIGHT = 250
     static let ANIMATION_DURATION = 0.1
     static let CONSTRAINTS_DATE_PICKERVIEW_BOTTOM = "datePickerViewBottomConstraint"
     static let CONSTRAINTS_CAMPUS_PICKERVIEW_BOTTOM = "campusPickerViewBottomConstraint"

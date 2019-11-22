@@ -19,7 +19,6 @@ class SearchTableViewController: UITableViewController {
     var classroomList: [Classroom] = []
     var announcement: Announcement?
     
-    
     //Variables
     var datePickerViewOpen = false
     var campusPickerViewOpen = false
@@ -89,8 +88,8 @@ class SearchTableViewController: UITableViewController {
         datePickerView.translatesAutoresizingMaskIntoConstraints = false
         let leftDatePickerViewConstraint = NSLayoutConstraint(item: datePickerView!, attribute: .left, relatedBy: .equal, toItem: datePickerView!.superview!, attribute: .left, multiplier: 1, constant: 0)
         let rightDatePickerViewConstraint = NSLayoutConstraint(item: datePickerView!, attribute: .right, relatedBy: .equal, toItem: datePickerView!.superview!, attribute: .right, multiplier: 1, constant: 0)
-        let heightDatePickerViewConstraint = NSLayoutConstraint(item: datePickerView!, attribute: .height, relatedBy: .equal, toItem: datePickerView!.superview!, attribute: .height, multiplier: 0, constant: Constants.DATE_PICKER_HEIGHT)
-        let bottomDatePickerViewConstraint = NSLayoutConstraint(item: datePickerView!, attribute: .bottom, relatedBy: .equal, toItem: datePickerView!.superview!, attribute: .bottom, multiplier: 1, constant: Constants.DATE_PICKER_HEIGHT)
+        let heightDatePickerViewConstraint = NSLayoutConstraint(item: datePickerView!, attribute: .height, relatedBy: .equal, toItem: datePickerView!.superview!, attribute: .height, multiplier: 0, constant: CGFloat(integerLiteral: Constants.DATE_PICKER_HEIGHT))
+        let bottomDatePickerViewConstraint = NSLayoutConstraint(item: datePickerView!, attribute: .bottom, relatedBy: .equal, toItem: datePickerView!.superview!, attribute: .bottom, multiplier: 1, constant: CGFloat(integerLiteral: Constants.DATE_PICKER_HEIGHT))
         bottomDatePickerViewConstraint.identifier = Constants.CONSTRAINTS_DATE_PICKERVIEW_BOTTOM
         self.datePickerView!.superview!.addConstraints([leftDatePickerViewConstraint, rightDatePickerViewConstraint, heightDatePickerViewConstraint, bottomDatePickerViewConstraint])
         NSLayoutConstraint.activate([leftDatePickerViewConstraint, rightDatePickerViewConstraint, heightDatePickerViewConstraint, bottomDatePickerViewConstraint])
@@ -99,8 +98,8 @@ class SearchTableViewController: UITableViewController {
         self.campusPickerView.translatesAutoresizingMaskIntoConstraints = false
         let leftCampusPickerViewConstraint = NSLayoutConstraint(item: campusPickerView!, attribute: .left, relatedBy: .equal, toItem: campusPickerView!.superview!, attribute: .left, multiplier: 1, constant: 0)
         let rightCampusPickerViewConstraint = NSLayoutConstraint(item: campusPickerView!, attribute: .right, relatedBy: .equal, toItem: campusPickerView!.superview!, attribute: .right, multiplier: 1, constant: 0)
-        let heightCampusPickerViewConstraint = NSLayoutConstraint(item: campusPickerView!, attribute: .height, relatedBy: .equal, toItem: campusPickerView!.superview!, attribute: .height, multiplier: 0, constant: Constants.CAMPUS_PICKER_HEIGHT)
-        let bottomCampusPickerViewConstraint = NSLayoutConstraint(item: campusPickerView!, attribute: .bottom, relatedBy: .equal, toItem: campusPickerView!.superview!, attribute: .bottom, multiplier: 1, constant: Constants.CAMPUS_PICKER_HEIGHT)
+        let heightCampusPickerViewConstraint = NSLayoutConstraint(item: campusPickerView!, attribute: .height, relatedBy: .equal, toItem: campusPickerView!.superview!, attribute: .height, multiplier: 0, constant: CGFloat(integerLiteral: Constants.CAMPUS_PICKER_HEIGHT))
+        let bottomCampusPickerViewConstraint = NSLayoutConstraint(item: campusPickerView!, attribute: .bottom, relatedBy: .equal, toItem: campusPickerView!.superview!, attribute: .bottom, multiplier: 1, constant: CGFloat(integerLiteral: Constants.CAMPUS_PICKER_HEIGHT))
         bottomCampusPickerViewConstraint.identifier = Constants.CONSTRAINTS_CAMPUS_PICKERVIEW_BOTTOM
         self.campusPickerView!.superview!.addConstraints([leftCampusPickerViewConstraint, rightCampusPickerViewConstraint, heightCampusPickerViewConstraint, bottomCampusPickerViewConstraint])
         NSLayoutConstraint.activate([leftCampusPickerViewConstraint, rightCampusPickerViewConstraint, heightCampusPickerViewConstraint, bottomCampusPickerViewConstraint])
@@ -109,8 +108,8 @@ class SearchTableViewController: UITableViewController {
         self.durationPickerView.translatesAutoresizingMaskIntoConstraints = false
         let leftDurationPickerViewConstraint = NSLayoutConstraint(item: durationPickerView!, attribute: .left, relatedBy: .equal, toItem: durationPickerView!.superview!, attribute: .left, multiplier: 1, constant: 0)
         let rightDurationPickerViewConstraint = NSLayoutConstraint(item: durationPickerView!, attribute: .right, relatedBy: .equal, toItem: durationPickerView!.superview!, attribute: .right, multiplier: 1, constant: 0)
-        let heightDurationPickerViewConstraint = NSLayoutConstraint(item: durationPickerView!, attribute: .height, relatedBy: .equal, toItem: durationPickerView!.superview!, attribute: .height, multiplier: 0, constant: Constants.DURATION_PICKER_HEIGHT)
-        let bottomDurationPickerViewConstraint = NSLayoutConstraint(item: durationPickerView!, attribute: .bottom, relatedBy: .equal, toItem: durationPickerView!.superview!, attribute: .bottom, multiplier: 1, constant: Constants.DURATION_PICKER_HEIGHT)
+        let heightDurationPickerViewConstraint = NSLayoutConstraint(item: durationPickerView!, attribute: .height, relatedBy: .equal, toItem: durationPickerView!.superview!, attribute: .height, multiplier: 0, constant: CGFloat(integerLiteral: Constants.DURATION_PICKER_HEIGHT))
+        let bottomDurationPickerViewConstraint = NSLayoutConstraint(item: durationPickerView!, attribute: .bottom, relatedBy: .equal, toItem: durationPickerView!.superview!, attribute: .bottom, multiplier: 1, constant: CGFloat(integerLiteral: Constants.DURATION_PICKER_HEIGHT))
         bottomDurationPickerViewConstraint.identifier = Constants.CONSTRAINTS_DURATION_PICKERVIEW_BOTTOM
         self.durationPickerView!.superview!.addConstraints([leftDurationPickerViewConstraint, rightDurationPickerViewConstraint, heightDurationPickerViewConstraint, bottomDurationPickerViewConstraint])
         NSLayoutConstraint.activate([leftDurationPickerViewConstraint, rightDurationPickerViewConstraint, heightDurationPickerViewConstraint, bottomDurationPickerViewConstraint])
@@ -178,7 +177,7 @@ class SearchTableViewController: UITableViewController {
         }
         
         if datePickerViewOpen, let constraint = ConstraintsHelper.getConstraint(withIdentifier: Constants.CONSTRAINTS_DATE_PICKERVIEW_BOTTOM, view: datePickerView.superview) {
-            constraint.constant = Constants.DATE_PICKER_HEIGHT
+            constraint.constant = CGFloat(integerLiteral: Constants.DATE_PICKER_HEIGHT)
             
             UIView.animate(withDuration: Constants.ANIMATION_DURATION, delay: 0, options: .curveLinear, animations: {
                 self.datePickerView!.superview!.layoutIfNeeded()
@@ -186,7 +185,7 @@ class SearchTableViewController: UITableViewController {
         }
         
         if campusPickerViewOpen, let constraint = ConstraintsHelper.getConstraint(withIdentifier: Constants.CONSTRAINTS_CAMPUS_PICKERVIEW_BOTTOM, view: campusPickerView.superview) {
-            constraint.constant = Constants.CAMPUS_PICKER_HEIGHT
+            constraint.constant = CGFloat(integerLiteral: Constants.CAMPUS_PICKER_HEIGHT)
             
             UIView.animate(withDuration: Constants.ANIMATION_DURATION, delay: 0, options: .curveLinear, animations: {
                 self.campusPickerView!.superview!.layoutIfNeeded()
@@ -194,7 +193,7 @@ class SearchTableViewController: UITableViewController {
         }
         
         if durationPickerViewOpen, let constraint = ConstraintsHelper.getConstraint(withIdentifier: Constants.CONSTRAINTS_DURATION_PICKERVIEW_BOTTOM, view: durationPickerView.superview) {
-            constraint.constant = Constants.DURATION_PICKER_HEIGHT
+            constraint.constant = CGFloat(integerLiteral: Constants.DURATION_PICKER_HEIGHT)
             
             UIView.animate(withDuration: Constants.ANIMATION_DURATION, delay: 0, options: .curveLinear, animations: {
                 self.durationPickerView!.superview!.layoutIfNeeded()
@@ -349,7 +348,9 @@ class SearchTableViewController: UITableViewController {
                 
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Something went wrong", message: "An error occurred while trying to connect to the server. Please try again later.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                        self.refreshControl?.endRefreshing()
+                    }))
                     self.present(alert, animated: true, completion: nil)
                 }
                 return

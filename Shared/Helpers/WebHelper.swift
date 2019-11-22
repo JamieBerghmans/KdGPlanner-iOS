@@ -18,7 +18,7 @@ class WebHelper {
         }
     }
     
-    func reload(date: Date,campus fullCampus: String, duration: Date, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?, _ announcement: Announcement?) -> Void) {
+    func reload(date: Date,campus fullCampus: String, duration: Date, limit: Int = 500, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?, _ announcement: Announcement?) -> Void) {
         
         refreshCount = 2
         
@@ -32,7 +32,7 @@ class WebHelper {
         
         let campus = Constants.CAMPUSSES[fullCampus]!
         
-        pullClassrooms(date: date, campus: campus, duration: newDuration, client: "ios") { (_error, _classrooms) in
+        pullClassrooms(date: date, campus: campus, duration: newDuration, client: "ios", limit: limit) { (_error, _classrooms) in
             error = _error
             classrooms = _classrooms
             
@@ -52,7 +52,7 @@ class WebHelper {
         }
     }
     
-    func reload(date: Date,campus fullCampus: String, duration: Date, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?) -> Void) {
+    func reload(date: Date,campus fullCampus: String, duration: Date, limit: Int = 500, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?) -> Void) {
         
         refreshCount = 1
         
@@ -62,15 +62,15 @@ class WebHelper {
         
         let campus = Constants.CAMPUSSES[fullCampus]!
         
-        pullClassrooms(date: date, campus: campus, duration: newDuration, client: "watchos") { (_error, _classrooms) in
+        pullClassrooms(date: date, campus: campus, duration: newDuration, client: "watchos", limit: limit) { (_error, _classrooms) in
             self.refreshCount = 0
             handler(_error, _classrooms)
         }
     }
     
-    func pullClassrooms(date: Date, campus: String, duration: Int, client: String, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?) -> Void) {
-        let url = URL(string: "\(Constants.API_BASE)\(Constants.API_LESSONS)dateTime=\(DateFormatHelper.dateToString(type: DateType.API,date: date))&campus=\(campus)&minAvailabilityMinutes=\(duration)&client=\(client)")
-
+    func pullClassrooms(date: Date, campus: String, duration: Int, client: String, limit: Int, handler:@escaping(_ error:Bool?,_ classrooms: [Classroom]?) -> Void) {
+        let url = URL(string: "\(Constants.API_BASE)\(Constants.API_LESSONS)dateTime=\(DateFormatHelper.dateToString(type: DateType.API,date: date))&campus=\(campus)&minAvailabilityMinutes=\(duration)&client=\(client)&limit=\(limit)")
+        
         let task = URLSession.shared.dataTask(with: url!) { data, _, error in
                 
             guard error == nil else {

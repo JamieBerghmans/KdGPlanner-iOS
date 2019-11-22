@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		04174DB0A4C6405EEB789E4B /* Pods_KdGPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3977F928066624EF67FE7F82 /* Pods_KdGPlanner.framework */; };
+		D41007412387FC2500B727F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4980288237E037E0094D00D /* Constants.swift */; };
+		D41007432388060E00B727F9 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41007422388060E00B727F9 /* SessionHandler.swift */; };
 		D44C80A72329673500A662AE /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C80A62329673500A662AE /* UnderlinedTextField.swift */; };
 		D46F9A84234CD959000A214C /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F9A83234CD959000A214C /* RoundedCorners.swift */; };
 		D46F9A86234CDFC7000A214C /* SegmentedControlFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F9A85234CDFC7000A214C /* SegmentedControlFilter.swift */; };
@@ -33,7 +35,6 @@
 		D498033C237EB6770094D00D /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3945D237B09F600B1B312 /* Announcement.swift */; };
 		D498033D237EB67D0094D00D /* WebHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4980281237D9C560094D00D /* WebHelper.swift */; };
 		D498033E237EB67D0094D00D /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D498028D237E07B10094D00D /* DateFormatHelper.swift */; };
-		D4980341237EB6C60094D00D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4980288237E037E0094D00D /* Constants.swift */; };
 		D4980343237EE6BB0094D00D /* ClassroomRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4980342237EE6BB0094D00D /* ClassroomRowController.swift */; };
 		D49CF9D92329345E0002D656 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49CF9D82329345E0002D656 /* AppDelegate.swift */; };
 		D49CF9DB2329345E0002D656 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49CF9DA2329345E0002D656 /* SearchTableViewController.swift */; };
@@ -94,6 +95,7 @@
 		23888D0615ABB0026F35CDA8 /* Pods-KdGPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KdGPlanner.debug.xcconfig"; path = "Target Support Files/Pods-KdGPlanner/Pods-KdGPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		3977F928066624EF67FE7F82 /* Pods_KdGPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KdGPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E485A129661F40580C8258 /* Pods-KdGPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KdGPlanner.release.xcconfig"; path = "Target Support Files/Pods-KdGPlanner/Pods-KdGPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		D41007422388060E00B727F9 /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
 		D44C80A62329673500A662AE /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		D46F9A83234CD959000A214C /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		D46F9A85234CDFC7000A214C /* SegmentedControlFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlFilter.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		D4980340237EB6A50094D00D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D41007422388060E00B727F9 /* SessionHandler.swift */,
 				D4980293237E1AEA0094D00D /* ConstraintsHelper.swift */,
 			);
 			path = Helpers;
@@ -533,12 +536,12 @@
 			files = (
 				D4980343237EE6BB0094D00D /* ClassroomRowController.swift in Sources */,
 				D498033C237EB6770094D00D /* Announcement.swift in Sources */,
-				D4980341237EB6C60094D00D /* Constants.swift in Sources */,
 				D498033A237EB6770094D00D /* AnnouncementDTO.swift in Sources */,
 				D498033E237EB67D0094D00D /* DateFormatHelper.swift in Sources */,
 				D4980326237EA7220094D00D /* ExtensionDelegate.swift in Sources */,
 				D498033D237EB67D0094D00D /* WebHelper.swift in Sources */,
 				D4980338237EB6660094D00D /* DateType.swift in Sources */,
+				D41007412387FC2500B727F9 /* Constants.swift in Sources */,
 				D4980324237EA7220094D00D /* InterfaceController.swift in Sources */,
 				D4980339237EB6770094D00D /* ClassroomDTO.swift in Sources */,
 				D498033B237EB6770094D00D /* Classroom.swift in Sources */,
@@ -565,6 +568,7 @@
 				D4980282237D9C560094D00D /* WebHelper.swift in Sources */,
 				D4B1E519237AC30100253C66 /* ClassroomCell.swift in Sources */,
 				D4E3945E237B09F600B1B312 /* Announcement.swift in Sources */,
+				D41007432388060E00B727F9 /* SessionHandler.swift in Sources */,
 				D498028C237E044F0094D00D /* DateType.swift in Sources */,
 				D4B1E51E237AE9F300253C66 /* ClassroomDTO.swift in Sources */,
 			);
@@ -618,7 +622,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.devvix.KdGPlanner.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
@@ -638,7 +642,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.devvix.KdGPlanner.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
@@ -649,6 +653,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZNQBXBDT78;
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
@@ -657,8 +662,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devvix.KdGPlanner.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -671,6 +678,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZNQBXBDT78;
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
@@ -679,8 +687,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devvix.KdGPlanner.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
