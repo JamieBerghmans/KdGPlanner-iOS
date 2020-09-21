@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097.3" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch44"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -11,51 +11,62 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
                     <items>
-                        <group width="1" height="1" alignment="left" layout="vertical" spacing="16" id="Vzb-kB-3d5">
+                        <imageView width="20" height="20" alignment="center" hidden="YES" contentMode="scaleAspectFit" id="NdP-YM-vSv"/>
+                        <table alignment="left" id="otj-R9-hFW">
                             <items>
-                                <imageView width="20" height="20" alignment="center" hidden="YES" contentMode="scaleAspectFit" id="NdP-YM-vSv"/>
-                                <table alignment="left" id="otj-R9-hFW">
-                                    <items>
-                                        <tableRow identifier="ClassroomRow" id="2XQ-BC-AnL" customClass="ClassroomRowController" customModule="Watch_Extension">
-                                            <group key="rootItem" width="1" height="59" alignment="left" layout="vertical" id="pdl-ff-2T2">
+                                <tableRow identifier="ClassroomRow" id="2XQ-BC-AnL" customClass="ClassroomRowController" customModule="Watch_Extension">
+                                    <group key="rootItem" width="1" height="59" alignment="left" layout="vertical" id="pdl-ff-2T2">
+                                        <items>
+                                            <group width="1" height="24" alignment="left" spacing="8" id="Cfe-Hx-Ahe">
                                                 <items>
-                                                    <group width="1" height="24" alignment="left" spacing="8" id="Cfe-Hx-Ahe">
-                                                        <items>
-                                                            <imageView width="24" height="24" alignment="left" image="wicon_book" id="jQx-rk-4LS"/>
-                                                            <textField width="1" widthAdjustment="-26" height="1" alignment="left" text="GR 511 (L)" id="xAu-An-pbm">
-                                                                <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES" updatesFrequently="YES"/>
-                                                                <connections>
-                                                                    <action selector="editingHasBegun:" destination="AgC-eL-Hgc" id="cNB-6j-A0e"/>
-                                                                </connections>
-                                                            </textField>
-                                                        </items>
-                                                    </group>
-                                                    <group width="1" alignment="left" spacing="8" id="PDp-95-x1s">
-                                                        <items>
-                                                            <imageView width="24" height="24" alignment="left" image="wicon_clock" id="0NI-Mf-cEs"/>
-                                                            <textField width="1" widthAdjustment="-26" height="1" alignment="left" text="12:30" id="oKy-V3-8qS">
-                                                                <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES" updatesFrequently="YES"/>
-                                                            </textField>
-                                                        </items>
-                                                    </group>
+                                                    <imageView width="24" height="24" alignment="left" image="wicon_book" id="jQx-rk-4LS"/>
+                                                    <textField width="1" widthAdjustment="-26" height="1" alignment="left" text="GR 511 (L)" id="xAu-An-pbm">
+                                                        <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES" updatesFrequently="YES"/>
+                                                        <connections>
+                                                            <action selector="editingHasBegun:" destination="AgC-eL-Hgc" id="cNB-6j-A0e"/>
+                                                        </connections>
+                                                    </textField>
                                                 </items>
-                                                <edgeInsets key="margins" left="6" right="2" top="3" bottom="0.0"/>
                                             </group>
-                                            <connections>
-                                                <outlet property="end" destination="oKy-V3-8qS" id="14v-QE-MI8"/>
-                                                <outlet property="room" destination="xAu-An-pbm" id="a0p-v5-GaK"/>
-                                            </connections>
-                                        </tableRow>
-                                    </items>
-                                </table>
+                                            <group width="1" alignment="left" spacing="8" id="PDp-95-x1s">
+                                                <items>
+                                                    <imageView width="24" height="24" alignment="left" image="wicon_clock" id="0NI-Mf-cEs"/>
+                                                    <textField width="1" widthAdjustment="-26" height="1" alignment="left" text="12:30" id="oKy-V3-8qS">
+                                                        <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES" updatesFrequently="YES"/>
+                                                    </textField>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="6" right="2" top="3" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="end" destination="oKy-V3-8qS" id="14v-QE-MI8"/>
+                                        <outlet property="room" destination="xAu-An-pbm" id="a0p-v5-GaK"/>
+                                    </connections>
+                                </tableRow>
                             </items>
-                        </group>
+                        </table>
                     </items>
                     <menu key="menu" id="bUK-TJ-9hr">
                         <items>
                             <menuItem title="Refresh" image="refresh" id="Cjf-4s-tzL">
                                 <connections>
                                     <action selector="refreshTap" destination="AgC-eL-Hgc" id="36g-Cc-fp8"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="GR" icon="more" id="Ef4-z5-1t6">
+                                <connections>
+                                    <action selector="groenplaatsTap" destination="AgC-eL-Hgc" id="f3g-sO-ydQ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="PH" icon="more" id="HjX-N8-r4Z">
+                                <connections>
+                                    <action selector="pothoekTap" destination="AgC-eL-Hgc" id="ibE-sp-fJ0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="SW" icon="more" id="oe1-Cv-iX7">
+                                <connections>
+                                    <action selector="stadswaagTap" destination="AgC-eL-Hgc" id="JKG-oC-gj4"/>
                                 </connections>
                             </menuItem>
                         </items>

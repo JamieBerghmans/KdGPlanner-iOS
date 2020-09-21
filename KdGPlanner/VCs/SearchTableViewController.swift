@@ -79,6 +79,9 @@ class SearchTableViewController: UITableViewController {
         //Load user saved preferences
         loadDefaultValues()
         reload(refresh: false)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onResume), name:
+        UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     override func updateViewConstraints() {
@@ -504,5 +507,11 @@ extension SearchTableViewController {
             return true
         }
         return false
+    }
+    
+    @objc func onResume() {
+        //Load user saved preferences
+        loadDefaultValues()
+        reload(refresh: false)
     }
 }

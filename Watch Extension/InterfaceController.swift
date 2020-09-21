@@ -19,6 +19,7 @@ class InterfaceController: WKInterfaceController {
     
     var classrooms: [Classroom]? = []
     let webHelper = WebHelper()
+    var campus = ""
     
     private var session = WCSession.default
     
@@ -26,15 +27,33 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
+        loadDefaults()
+        
         if WCSession.isSupported() {
             session.delegate = self
             session.activate()
         }
     }
     
+    func loadDefaults() {
+        let defaults = UserDefaults.standard
+        
+        //Check if a different campus was previously selected
+        if let _campus = defaults.string(forKey: Constants.TAGS_CAMPUS) {
+            campus = _campus
+        } else {
+            campus = Constants.LIST_CAMPUSSES[0]
+        }
+    }
+    
+    func updateDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.set(campus, forKey: Constants.TAGS_CAMPUS)
+    }
+    
     func populateTableIndependently() {
         print("Watch request")
-        webHelper.reload(date: Date(), campus: "Groenplaats", duration: DateFormatHelper.stringToDate(type: DateType.TIME, string: "00:30"), limit: 3) { (error, classrooms) in
+        webHelper.reload(date: Date(), campus: campus, duration: DateFormatHelper.stringToDate(type: DateType.TIME, string: "00:30"), limit: 3) { (error, classrooms) in
             self.classrooms = classrooms
             
             DispatchQueue.main.async {
@@ -53,7 +72,7 @@ class InterfaceController: WKInterfaceController {
         
         if session.isReachable {
             print("Phone request")
-            session.sendMessage(["type" : "classrooms", "campus": "Groenplaats", "limit": 3], replyHandler: { (response) in
+            session.sendMessage(["type" : "classrooms", "campus": campus, "limit": 5], replyHandler: { (response) in
                 var result: [Classroom] = []
                 
                 do {
@@ -125,6 +144,25 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func editingHasBegun(_ value: NSString?) {
         print("test")
+    }
+    
+    @IBAction func groenplaatsTap() {
+        campus = "Groenplaats"
+        updateDefaults()
+        refreshTap()
+    }
+    
+    
+    @IBAction func pothoekTap() {
+        campus = "Pothoek"
+        updateDefaults()
+        refreshTap()
+    }
+    
+    @IBAction func stadswaagTap() {
+        campus = "Stadswaag"
+        updateDefaults()
+        refreshTap()
     }
 }
 
