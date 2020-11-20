@@ -89,19 +89,17 @@ class WebHelper {
                 //self.classroomList.removeAll()
                 
                 for (value) in json {
-                    if value.classroom != "" {
-                        let room = Classroom(room: value.classroom!)
-                        
-                        if let duration = value.availability {
-                            room.duration = DateFormatHelper.stringToDate(type: DateType.DTO_TIME, string: duration)
-                        }
-                        
-                        if let end = value.endAvailability {
-                            room.end = DateFormatHelper.stringToDate(type: DateType.DTO_DATE, string: end)
-                        }
-                        
-                        classrooms.append(room)
+                    let room = Classroom(room: value.classroom!)
+                    
+                    if let duration = value.availability {
+                        room.duration = DateFormatHelper.stringToDate(type: DateType.DTO_TIME, string: duration)
                     }
+                    
+                    if let end = value.endAvailability {
+                        room.end = DateFormatHelper.stringToDate(type: DateType.DTO_DATE, string: end)
+                    }
+                    
+                    classrooms.append(room)
                 }
             }
             
